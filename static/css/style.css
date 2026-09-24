@@ -1,0 +1,370 @@
+/* =========================================================================
+   Переменные фирменных цветов
+   ========================================================================= */
+:root {
+  --primary-teal: #009688;
+  --primary-teal-hover: #00796b;
+  --primary-teal-dark: #004d40;
+  --accent-orange: #ff9800;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* =========================================================================
+   Хедер и логотип
+   ========================================================================= */
+header.sticky-top {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1030 !important;
+  background-color: #f8f9fa;
+}
+
+.header-center-avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+  width: 85px;
+  height: 85px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+
+.header-center-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* =========================================================================
+   Navbar
+   ========================================================================= */
+.style-navbar-custom {
+  background-color: #e0f2f1 !important;
+}
+
+.style-navbar-custom .navbar-brand {
+  color: var(--primary-teal-dark) !important;
+}
+
+.style-navbar-custom .nav-link {
+  color: #004d40 !important;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.style-navbar-custom .nav-link:hover,
+.style-navbar-custom .nav-link.active {
+  opacity: 1;
+  color: var(--primary-teal) !important;
+}
+
+.logo-text {
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.menu-list .nav-link {
+  font-weight: 500;
+}
+
+/* =========================================================================
+   Заголовки и карточки
+   ========================================================================= */
+.section-title {
+  font-weight: 700;
+  color: var(--primary-teal-dark);
+  position: relative;
+}
+
+.tour-card {
+  border: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tour-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+.card-img-wrapper {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.text-teal-dark {
+  color: var(--primary-teal-dark);
+}
+
+.text-teal {
+  color: var(--primary-teal) !important;
+}
+
+/* =========================================================================
+   Кнопки
+   ========================================================================= */
+.btn-outline-teal {
+  color: var(--primary-teal);
+  border-color: var(--primary-teal);
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-teal:hover {
+  background-color: var(--primary-teal);
+  border-color: var(--primary-teal);
+  color: #fff;
+}
+
+.btn-fill-teal {
+  background-color: var(--primary-teal);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.btn-fill-teal:hover {
+  background-color: var(--primary-teal-hover);
+  color: #fff;
+}
+
+.filter-group-box .btn-teal {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  color: #555;
+  font-weight: 500;
+}
+
+.filter-group-box .btn-teal.active,
+.filter-group-box .btn-teal:hover {
+  background-color: var(--primary-teal) !important;
+  border-color: var(--primary-teal) !important;
+  color: #fff !important;
+}
+
+/* =========================================================================
+   Бейджи
+   ========================================================================= */
+.bg-teal {
+  background-color: var(--primary-teal) !important;
+}
+
+.bg-orange {
+  background-color: var(--accent-orange) !important;
+}
+
+.bg-yellow {
+  background-color: #f1c40f !important;
+}
+
+.bg-purple {
+  background-color: #6f42c1 !important;
+  color: #fff !important;
+}
+
+.bg-blue {
+  background-color: #0d6efd !important;
+  color: #fff !important;
+}
+
+.text-orange {
+  color: #ff7f50 !important;
+}
+
+/* =========================================================================
+   Флаг Башкортостана
+   ========================================================================= */
+.bashkortostan-flag-divider {
+  display: block;
+  width: 100%;
+}
+
+.bashkortostan-flag-divider hr {
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+  height: 4px !important;
+  border: none !important;
+}
+
+.flag-line-blue {
+  background-color: #006aa7 !important;
+}
+
+.flag-line-white {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e0e0e0 !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.flag-line-green {
+  background-color: #257e3a !important;
+}
+
+.border-teal-light {
+  border-color: #b2dfdb !important;
+}
+
+/* =========================================================================
+   Кнопка "Наверх"
+   ========================================================================= */
+.btn-teal-scroll {
+  bottom: 30px;
+  right: 30px;
+  z-index: 1040;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--primary-teal);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.8;
+}
+
+.btn-teal-scroll:hover {
+  background-color: var(--primary-teal-hover);
+  color: #fff;
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 576px) {
+  .btn-teal-scroll {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .header-center-avatar {
+    display: none !important;
+  }
+}
+
+/* =========================================================================
+   Карусель в модальных окнах
+   ========================================================================= */
+.carousel-img {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  border: none;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.carousel-arrow.prev {
+  left: calc(50% - 25% - 1.5rem);
+}
+
+.carousel-arrow.next {
+  right: calc(50% - 25% - 1.5rem);
+}
+
+/* =========================================================================
+   Скрытие неактивных туров
+   ========================================================================= */
+.tour-hidden {
+  display: none !important;
+}
+
+/* =========================================================================
+   Стили для политики конфиденциальности
+   ========================================================================= */
+.privacy-text {
+  max-width: 950px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.privacy-text h2 {
+  border-bottom: 3px solid #008080;
+  padding-bottom: 12px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #0F1115;
+}
+
+.privacy-text h3 {
+  font-size: 21px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #0F1115;
+  font-weight: 600;
+}
+
+.privacy-text p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.privacy-text a {
+  color: #008080;
+  text-decoration: none;
+}
+
+.privacy-text a:hover {
+  text-decoration: underline;
+}
+
+.list-styled {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 25px;
+}
+
+.list-styled li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.list-styled li::before {
+  content: "●";
+  color: #008080;
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+.alert-pastel {
+  background-color: #f7fafc;
+  border-left-color: #008080;
+  color: #333333;
+}

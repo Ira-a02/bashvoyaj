@@ -1,0 +1,553 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Title для страницы политики -->
+    <title>Политика конфиденциальности — Баш Вояж</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <meta name="description" content="Политика в отношении обработки персональных данных клиентов сайта BashVoyaj.ru и БашВояж.рф">
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script> window.CF_TURNSTILE_SITE_KEY = "{{ CF_TURNSTILE_SITE_KEY }}";</script>
+</head>
+<body>
+
+<!-- Блок логотипа -->
+<div id="BashVoyajLogo" class="top-bar p-0">
+    <div class="container-fluid p-0">
+        <img src="{% static 'img/BashVoyajLogo.webp' %}" alt="Баш Вояж" class="img-fluid w-100">
+    </div>
+</div>
+
+<!-- Шапка -->
+<header class="sticky-top shadow-sm position-relative">
+    <!-- Круглый логотип -->
+    <div class="header-center-avatar position-absolute top-0 start-50 translate-middle-x" style="z-index: 9999; pointer-events: auto;">
+        <a href="/" class="d-inline-block" style="pointer-events: auto;">
+            <img src="{% static 'img/Logo1.webp' %}" alt="Баш вояж - логотип" class="rounded-circle" style="width: 80px; height: 80px; pointer-events: auto;">
+        </a>
+    </div>
+
+    <!-- Верхняя информационная панель -->
+    <div class="top-bar py-2 bg-light border-bottom text-secondary small">
+        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="tel:+79279330333" class="text-decoration-none text-secondary d-flex align-items-center gap-1">
+                    <i class="bi bi-telephone-fill text-teal"></i> +7 (927) 933‑0‑333
+                </a>
+                <a href="mailto:yana.mova.99@mail.ru" class="text-decoration-none text-secondary d-flex align-items-center gap-1">
+                    <i class="bi bi-envelope-fill text-teal"></i> yana.mova.99@mail.ru
+                </a>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <!-- VK -->
+                <a href="https://vk.com/bashvoyaj" target="_blank" rel="noopener noreferrer" class="text-secondary d-flex align-items-center justify-content-center" title="ВКонтакте" style="width: 24px; height: 24px;">
+                    <span style="color: #0077FF; width: 100%; height: 100%; display: flex;">
+                        <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+                            <path d="M15.025 21.05c-6.84 0-10.745-4.685-10.91-12.49h3.405c.11 5.735 2.63 8.165 4.635 8.665V8.56H15.3v4.935c1.925-.21 4.025-2.47 4.71-4.935h3.4a8.91 8.91 0 0 1-4.32 6.305c1.785.835 4.08 2.84 4.61 6.185h-3.565c-.415-2.615-2.515-4.645-4.965-4.89v4.89h-.65Z"/>
+                        </svg>
+                    </span>
+                </a>
+                <!-- Max -->
+                <a href="https://web.max.ru" target="_blank" rel="noopener noreferrer" class="text-secondary d-flex align-items-center justify-content-center" title="Max" style="width: 24px; height: 24px;">
+                    <img src="{% static 'img/MAX.svg' %}" alt="MAX" style="width: 95%; height: 95%; object-fit: contain;">
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/bashvoyaj" target="_blank" rel="noopener noreferrer" class="text-secondary d-flex align-items-center justify-content-center" title="Instagram" style="width: 24px; height: 24px;">
+                    <i class="bi bi-instagram" style="color: #E4405F; font-size: 24px;"></i>
+                </a>
+                <!-- Telegram -->
+                <a href="https://web.telegram.org/k/#@BashVoyaj" target="_blank" rel="noopener noreferrer" class="text-secondary d-flex align-items-center justify-content-center" title="Telegram" style="width: 24px; height: 24px;">
+                    <i class="bi bi-telegram" style="color: #0088CC; font-size: 24px;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Навигация (ссылка на главную изменена на "/") -->
+    <nav class="navbar navbar-expand-md navbar-light style-navbar-custom">
+        <div class="container">
+            <a class="navbar-brand logo-text fw-bold" href="/"><i>БашВояж</i></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav menu-list gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="/#tours-section">Маршруты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#" id="open-booking-step1">Контакты и бронирование</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#" data-bs-toggle="modal" data-bs-target="#skidkiModal">Скидки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">О компании</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Разделитель флага -->
+<div class="bashkortostan-flag-divider">
+    <hr class="flag-line-blue">
+    <hr class="flag-line-white">
+    <hr class="flag-line-green">
+</div>
+
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<main class="container my-5">
+
+
+<!-- Заголовок (без рамки и фона) -->
+
+    <!-- Весь текст политики -->
+    <div class="privacy-text">
+        <h1 class="fw-bold text-teal-dark mb-3">Политика в отношении обработки персональных данных</h1>
+        <p class="text-secondary mb-1"><strong>Индивидуального предпринимателя Мова Яны Александровны</strong></p>
+        <p class="text-secondary"><em>(Туристическая фирма «Башвояж»)</em></p>
+        <p class="small text-muted mb-0">Редакция от «28» августа 2026 г.</p>
+
+
+        <h2>1. ОБЩИЕ ПОЛОЖЕНИЯ</h2>
+        <p>1.1. Настоящая Политика в отношении обработки персональных данных (далее — «Политика») разработана в соответствии с Федеральным законом от 27.07.2006 №152-ФЗ «О персональных данных» (далее — «Закон о персональных данных») и определяет порядок обработки персональных данных и меры по обеспечению их безопасности, предпринимаемые Индивидуальным предпринимателем Мова Яной Александровной (далее — «Оператор»).</p>
+        <p>1.2. Настоящая Политика применяется ко всей информации, которую Оператор может получить о посетителях веб-сайтов <a href="https://bashvoyaj.ru" target="_blank">https://bashvoyaj.ru</a> и <a href="https://башвояж.рф" target="_blank">https://башвояж.рф</a> (далее — «Сайт»), а также о клиентах и иных пользователях Сайта. Оба доменных имени ведут на один и тот же Сайт в сети Интернет, и настоящая Политика действует в отношении обоих доменов в равной степени.</p>
+        <p>1.3. Настоящая Политика опубликована в свободном доступе в информационно-телекоммуникационной сети Интернет на Сайте Оператора по адресу: <a href="https://bashvoyaj.ru/privacy-policy" target="_blank">https://bashvoyaj.ru/privacy-policy</a> (а также доступна по адресу <a href="https://башвояж.рф/privacy-policy" target="_blank">https://башвояж.рф/privacy-policy</a>).</p>
+        <p>1.4. Оператор обеспечивает неограниченный доступ к настоящей Политике, в том числе путём размещения ссылки на неё в нижней части (footer) каждой страницы Сайта (на обоих доменах), а также непосредственно под формами сбора персональных данных.</p>
+        <p>1.5. Используя Сайт (любой из доменов) и заполняя формы сбора персональных данных, Пользователь выражает своё согласие с условиями настоящей Политики.</p>
+
+        <h2>2. СВЕДЕНИЯ ОБ ОПЕРАТОРЕ</h2>
+        <p><strong>2.1.</strong> Индивидуальный предприниматель Мова Яна Александровна</p>
+        <p><strong>2.2. ОГРНИП:</strong> 323028000149032</p>
+        <p><strong>2.3. ИНН:</strong> 026826675508</p>
+        <p><strong>2.4. Адрес:</strong> Республика Башкортостан, Иглинский район, село Акбердино, ул. Кугарчинская 13</p>
+        <p><strong>2.5. Адрес электронной почты:</strong> Yana.Mova.99@mail.ru</p>
+        <p><strong>2.6. Контактный телефон:</strong> +7-987-029-35-90</p>
+        <p><strong>2.7. Основной адрес Сайта:</strong> <a href="https://bashvoyaj.ru" target="_blank">https://bashvoyaj.ru</a></p>
+        <p><strong>2.8. Дополнительный адрес Сайта:</strong> <a href="https://башвояж.рф" target="_blank">https://башвояж.рф</a></p>
+
+        <h2>3. ОСНОВНЫЕ ПОНЯТИЯ, ИСПОЛЬЗУЕМЫЕ В ПОЛИТИКЕ</h2>
+        <p><strong>3.1. Персональные данные</strong> — любая информация, относящаяся прямо или косвенно к определённому или определяемому физическому лицу (субъекту персональных данных).</p>
+        <p><strong>3.2. Оператор</strong> — Индивидуальный предприниматель Мова Яна Александровна, самостоятельно организующий и осуществляющий обработку персональных данных, а также определяющий цели обработки персональных данных.</p>
+        <p><strong>3.3. Обработка персональных данных</strong> — любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных.</p>
+        <p><strong>3.4. Пользователь</strong> — любой посетитель веб-сайтов <a href="https://bashvoyaj.ru" target="_blank">https://bashvoyaj.ru</a> или <a href="https://башвояж.рф" target="_blank">https://башвояж.рф</a>.</p>
+        <p><strong>3.5. Автоматизированная обработка персональных данных</strong> — обработка персональных данных с помощью средств вычислительной техники.</p>
+        <p><strong>3.6. Блокирование персональных данных</strong> — временное прекращение обработки персональных данных (за исключением случаев, если обработка необходима для уточнения персональных данных).</p>
+        <p><strong>3.7. Уничтожение персональных данных</strong> — действия, в результате которых становится невозможным восстановить содержание персональных данных в информационной системе персональных данных и (или) в результате которых уничтожаются материальные носители персональных данных.</p>
+
+        <h2>4. ЦЕЛИ, КАТЕГОРИИ И СОСТАВ ОБРАБАТЫВАЕМЫХ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+
+        <h3>4.1. Цель: Обработка заявок и оказание туристических услуг</h3>
+        <ul class="list-styled">
+            <li><strong>Категории субъектов:</strong> Пользователи Сайта, клиенты туристической фирмы «Башвояж», лица, обратившиеся с заявкой на оказание туристических услуг.</li>
+            <li><strong>Перечень персональных данных:</strong> фамилия, имя, отчество; номер контактного телефона; адрес электронной почты; дата рождения; иные данные, сообщённые Пользователем при заполнении формы заявки.</li>
+            <li><strong>Правовое основание:</strong> п. 1 ч. 1 ст. 6 Федерального закона № 152-ФЗ — обработка осуществляется с согласия субъекта персональных данных; п. 5 ч. 1 ст. 6 — обработка необходима для заключения договора, стороной которого является субъект.</li>
+            <li><strong>Способы обработки:</strong> автоматизированная и неавтоматизированная обработка.</li>
+            <li><strong>Срок обработки и хранения:</strong> 3 года с момента последнего обращения (закрытия заявки) либо до отзыва согласия Пользователем.</li>
+            <li><strong>Порядок уничтожения:</strong> по истечении срока хранения или при достижении целей обработки — уничтожение путём удаления из информационных систем и уничтожения материальных носителей.</li>
+        </ul>
+
+        <h3>4.2. Цель: Направление информационных и рекламных сообщений (рассылок)</h3>
+        <ul class="list-styled">
+            <li><strong>Категории субъектов:</strong> Пользователи Сайта, давшие отдельное согласие на получение рассылок.</li>
+            <li><strong>Перечень персональных данных:</strong> ФИО; адрес электронной почты; номер контактного телефона, дата рождения.</li>
+            <li><strong>Правовое основание:</strong> п. 1 ч. 1 ст. 6 Федерального закона № 152-ФЗ — обработка осуществляется с согласия субъекта персональных данных.</li>
+            <li><strong>Способы обработки:</strong> автоматизированная обработка.</li>
+            <li><strong>Срок обработки и хранения:</strong> до отзыва согласия Пользователем, но не более 3 лет.</li>
+            <li><strong>Порядок уничтожения:</strong> при отзыве согласия или по истечении срока — немедленное удаление из базы рассылок.</li>
+        </ul>
+
+        <!-- Важное примечание в красивом блоке -->
+        <div class="alert alert-pastel border-start border-4 border-teal mt-4" role="alert">
+            <strong>Важно:</strong> На момент утверждения настоящей Политики рассылки не осуществляются. При запуске рассылок Пользователям будет предложено дать отдельное информированное согласие в соответствии с требованиями ст. 9 Федерального закона № 152-ФЗ через специальную форму на Сайте с отметкой (чекбоксом).
+        </div>
+
+        <h3>4.3. Цель: Аналитика и улучшение работы Сайта</h3>
+        <ul class="list-styled">
+            <li><strong>Категории субъектов:</strong> все посетители Сайта (обоих доменов).</li>
+            <li><strong>Перечень персональных данных:</strong> IP-адрес; данные о местоположении; история посещений Сайта; тип и версия браузера; тип устройства; данные, собираемые с помощью файлов cookie.</li>
+            <li><strong>Правовое основание:</strong> п. 1 ч. 1 ст. 6 Федерального закона № 152-ФЗ — обработка осуществляется с согласия субъекта персональных данных (согласие на использование cookie).</li>
+            <li><strong>Способы обработки:</strong> автоматизированная обработка с использованием систем аналитики.</li>
+            <li><strong>Срок обработки и хранения:</strong> в соответствии со сроками, установленными используемыми системами аналитики; файлы cookie хранятся на устройстве Пользователя до их удаления Пользователем или истечения срока действия.</li>
+            <li><strong>Порядок уничтожения:</strong> автоматическое уничтожение по истечении срока хранения cookie; удаление данных при обезличивании в системах аналитики.</li>
+        </ul>
+
+        <div class="alert alert-pastel border-start border-4 border-teal mt-4" role="alert">
+            <strong>Важно:</strong> На момент утверждения настоящей Политики аналитика подключается в плановом порядке. При подключении систем аналитики на Сайте (на обоих доменах) будет установлен cookie-баннер для получения информированного согласия Пользователей.
+        </div>
+
+        <h2>5. ПРАВОВЫЕ ОСНОВАНИЯ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+        <p>5.1. Оператор обрабатывает персональные данные только при наличии одного из следующих оснований:</p>
+        <ul class="list-styled">
+            <li><strong>Согласие субъекта персональных данных</strong> на обработку его персональных данных (п. 1 ч. 1 ст. 6 Федерального закона № 152-ФЗ);</li>
+            <li><strong>Заключение или исполнение договора</strong>, стороной которого является субъект персональных данных (п. 5 ч. 1 ст. 6 Федерального закона № 152-ФЗ).</li>
+        </ul>
+        <p>5.2. Обработка персональных данных осуществляется на основе следующих принципов:</p>
+        <ul class="list-styled">
+            <li>законности целей и способов обработки;</li>
+            <li>добросовестности;</li>
+            <li>соответствия целей обработки целям, заранее определённым и заявленным при сборе персональных данных;</li>
+            <li>соответствия объёма и характера обрабатываемых персональных данных заявленным целям обработки.</li>
+        </ul>
+
+        <h2>6. ПОРЯДОК И УСЛОВИЯ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+        <p>6.1. Обработка персональных данных осуществляется с соблюдением принципов и правил, предусмотренных Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» (далее – Закон о персональных данных).</p>
+        <p>6.2. Обработка персональных данных осуществляется:</p>
+        <ul class="list-styled">
+            <li>с согласия субъекта персональных данных на обработку его персональных данных;</li>
+            <li>с использованием средств автоматизации и без их использования.</li>
+        </ul>
+        <p>6.3. Оператор обрабатывает персональные данные Пользователей в следующих случаях:</p>
+        <ul class="list-styled">
+            <li>заполнение Пользователем формы обратной связи или формы заявки на Сайте (на любом из доменов);</li>
+            <li>заполнение Пользователем формы подписки на рассылку (при запуске рассылок);</li>
+            <li>использование Пользователем Сайта и дача согласия на использование файлов cookie;</li>
+            <li>иные случаи, прямо предусмотренные законодательством Российской Федерации.</li>
+        </ul>
+        <p>6.4. <strong>Согласие на обработку персональных данных</strong>, предоставляемое Пользователем, оформляется в электронной форме путём проставления отметки (чекбокса) в соответствующей форме на Сайте. Согласие даётся на конкретные, заранее определённые цели и оформляется отдельно от иных документов, содержит все обязательные сведения по ч. 4 ст. 9 152‑ФЗ и может быть отозвано в порядке ст. 9.</p>
+        <p>6.5. <strong>Согласие на обработку персональных данных, разрешённых для распространения</strong>, может быть оформлено Пользователем дополнительно в порядке, установленном ст. 10.1 Федерального закона № 152-ФЗ, с использованием конструктора на сайте Роскомнадзора.</p>
+        <p>6.6. <strong>Оператор не передаёт и не раскрывает персональные данные третьим лицам, за исключением:</strong></p>
+        <ul class="list-styled">
+            <li>случаев, прямо предусмотренных законодательством Российской Федерации;</li>
+            <li>хостинг-провайдеру ООО «ТаймВэб» (TimeWeb), обеспечивающему размещение и техническую поддержку Сайта, на основании договора поручения обработки (ч. 3 ст. 6 152‑ФЗ). Передача данных осуществляется исключительно в целях технического обеспечения работы Сайта и хранения данных.</li>
+        </ul>
+        <p>6.7. <strong>Хостинг Сайта</strong> (включая оба домена) осуществляется на серверах компании ООО «ТаймВэб» (Санкт-Петербург, https://timeweb.ru), расположенных на территории Российской Федерации, что соответствует требованиям ч. 5 ст. 18 152‑ФЗ о локализации персональных данных граждан Российской Федерации.</p>
+
+        <h2>7. СРОКИ ОБРАБОТКИ И ХРАНЕНИЯ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+        <p>7.1. Персональные данные Пользователей обрабатываются в течение сроков, установленных для каждой цели обработки в разделе 4 настоящей Политики.</p>
+        <p>7.2. По истечении установленных сроков хранения или при достижении целей обработки персональные данные подлежат уничтожению или обезличиванию.</p>
+        <p>7.3. В случае отзыва Пользователем согласия на обработку персональных данных Оператор прекращает их обработку и уничтожает персональные данные в срок, не превышающий 30 дней с даты поступления указанного отзыва, если иное не предусмотрено законодательством Российской Федерации.</p>
+        <p>7.4. Оператор вправе продолжить обработку персональных данных без согласия субъекта при наличии оснований, указанных в пунктах 2-11 части 1 статьи 6, части 2 статьи 10 и части 2 статьи 11 Федерального закона № 152-ФЗ.</p>
+
+        <h2>8. МЕРЫ ПО ЗАЩИТЕ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+        <p>8.1. Оператор принимает необходимые и достаточные организационные и технические меры для защиты персональных данных от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий третьих лиц.</p>
+        <p>8.2. Такие меры включают в себя:</p>
+        <ul class="list-styled">
+            <li>определение угроз безопасности персональных данных при их обработке;</li>
+            <li>применение организационных и технических мер по обеспечению безопасности персональных данных;</li>
+            <li>применение средств защиты информации (включая шифрование каналов связи по протоколу TLS);</li>
+            <li>оценку эффективности принимаемых мер;</li>
+            <li>обнаружение фактов несанкционированного доступа к персональным данным и принятие мер;</li>
+            <li>восстановление персональных данных, модифицированных или уничтоженных вследствие несанкционированного доступа;</li>
+            <li>установление правил доступа к персональным данным;</li>
+            <li>контроль за принимаемыми мерами по обеспечению безопасности персональных данных.</li>
+        </ul>
+        <p>8.3. Доступ к персональным данным имеют только уполномоченные сотрудники Оператора, непосредственно связанные с обработкой заявок и обслуживанием клиентов.</p>
+
+        <h2>9. ПРАВА СУБЪЕКТОВ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+        <p>9.1. Субъект персональных данных имеет право:</p>
+        <ul class="list-styled">
+            <li>получать информацию, касающуюся обработки его персональных данных, в том числе подтверждение факта обработки, правовые основания и цели обработки, способы обработки, сведения о лицах, имеющих доступ к данным;</li>
+            <li>требовать уточнения, блокирования или уничтожения его персональных данных в случае, если они являются неполными, устаревшими, неточными, незаконно полученными или не являются необходимыми для заявленной цели обработки;</li>
+            <li>отозвать своё согласие на обработку персональных данных в любое время;</li>
+            <li>обжаловать действия или бездействие Оператора в уполномоченный орган по защите прав субъектов персональных данных (Роскомнадзор) или в судебном порядке.</li>
+        </ul>
+        <p>9.2. Для реализации своих прав Пользователь направляет Оператору письменный запрос по адресу электронной почты или почтовому адресу, указанным в разделе 2 настоящей Политики.</p>
+        <p>9.3. Ответ на запрос Пользователя направляется в течение 30 дней с даты получения запроса, если иной срок не установлен законодательством.</p>
+
+        <h2>10. ПОЛИТИКА В ОТНОШЕНИИ ФАЙЛОВ COOKIE</h2>
+        <p>10.1. Сайт (оба домена) использует файлы cookie — небольшие текстовые файлы, размещаемые на устройстве Пользователя при посещении Сайта.</p>
+        <p>10.2. <strong>Строго необходимые cookie</strong> используются для обеспечения корректной работы Сайта (без них Сайт не может функционировать должным образом). Такие cookie не требуют отдельного согласия Пользователя.</p>
+        <p>10.3. <strong>Аналитические и статистические cookie</strong> используются для сбора обезличенных данных о посещаемости Сайта, анализа поведения Пользователей и улучшения работы Сайта. Использование таких cookie осуществляется <strong>только при наличии информированного согласия Пользователя</strong>, получаемого через cookie-баннер на Сайте (на обоих доменах).</p>
+        <p>10.4. <strong>Порядок получения согласия:</strong></p>
+        <p>При первом посещении Сайта (любого из доменов) Пользователю отображается cookie-баннер с информацией об использовании файлов cookie. Согласие считается полученным только после явного нажатия Пользователем кнопки «Согласен» или аналогичного активного действия. Закрытие баннера без нажатия кнопки согласия или нажатие кнопки «Отказаться» означает отказ от использования аналитических cookie. Срок действия согласия на использование аналитических cookie составляет 12 месяцев с момента его получения. По истечении этого срока согласие запрашивается повторно. Сами данные, собираемые с помощью cookie, обрабатываются в течение сроков, указанных в п. 4.3 настоящей Политики.</p>
+        <p>10.5. Пользователь может в любой момент отключить или удалить файлы cookie в настройках своего браузера, а также отозвать ранее данное согласие через настройки cookie на Сайте. При этом некоторые функции Сайта могут стать недоступными.</p>
+        <p>10.6. Оператор не использует маркетинговые и рекламные cookie для таргетинга рекламы.</p>
+
+        <h2>11. ПОРЯДОК ОТЗЫВА СОГЛАСИЯ</h2>
+        <p>11.1. Пользователь вправе отозвать своё согласие на обработку персональных данных в любое время путём направления письменного уведомления Оператору по адресу электронной почты или почтовому адресу, указанным в разделе 2 настоящей Политики.</p>
+        <p>11.2. В уведомлении об отзыве согласия Пользователь должен указать:</p>
+        <ul class="list-styled">
+            <li>свои фамилию, имя, отчество;</li>
+            <li>контактные данные (телефон, адрес электронной почты);</li>
+            <li>информацию о том, на обработку каких именно персональных данных отзывается согласие.</li>
+        </ul>
+        <p>11.3. В случае отзыва Пользователем согласия на обработку персональных данных Оператор прекращает их обработку и уничтожает персональные данные в срок, не превышающий 30 дней с даты поступления указанного отзыва, за исключением случаев, когда Оператор вправе продолжить обработку без согласия Пользователя на основаниях, предусмотренных законом.</p>
+
+        <h2>12. ИЗМЕНЕНИЕ ПОЛИТИКИ</h2>
+        <p>12.1. Оператор вправе вносить изменения в настоящую Политику в одностороннем порядке.</p>
+        <p>12.2. Новая редакция Политики вступает в силу с момента её размещения на Сайте по адресу: <a href="https://bashvoyaj.ru/privacy-policy" target="_blank">https://bashvoyaj.ru/privacy-policy</a> (а также на <a href="https://башвояж.рф/privacy-policy" target="_blank">https://башвояж.рф/privacy-policy</a>), если иное не предусмотрено новой редакцией Политики.</p>
+        <p>12.3. Пользователь обязан самостоятельно отслеживать изменения в Политике. Продолжение использования Сайта (любого из доменов) после внесения изменений означает согласие Пользователя с новой редакцией Политики.</p>
+
+        <h2>13. ЗАКЛЮЧИТЕЛЬНЫЕ ПОЛОЖЕНИЯ</h2>
+        <p>13.1. Настоящая Политика является общедоступным документом и размещена в свободном доступе на Сайте по адресам: <a href="https://bashvoyaj.ru/privacy-policy" target="_blank">https://bashvoyaj.ru/privacy-policy</a> и <a href="https://башвояж.рф/privacy-policy" target="_blank">https://башвояж.рф/privacy-policy</a>.</p>
+        <p>13.2. Действующая редакция Политики всегда доступна на Сайте по указанным выше адресам.</p>
+        <p>13.3. Все вопросы, касающиеся обработки персональных данных, Пользователь может направить Оператору по контактным данным, указанным в разделе 2 настоящей Политики.</p>
+        <p>13.4. Во всём остальном, что не урегулировано настоящей Политикой, Оператор и Пользователь руководствуются действующим законодательством Российской Федерации.</p>
+        <p>13.5. Споры и разногласия, возникающие из настоящей Политики или в связи с ней, подлежат разрешению в судебном порядке в соответствии с действующим законодательством Российской Федерации по месту нахождения Оператора.</p>
+
+        <p class="mt-5 py-3 border-top text-muted small fst-italic">
+            Настоящая Политика разработана в соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» с учётом изменений, вступивших в силу с 30 мая 2025 года.
+        </p>
+    </div>
+</main>
+
+
+<!-- Подвал -->
+<footer id="footer-section" class="bg-light border-top py-5 mt-5 text-secondary">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-12 col-md-4">
+                <h5 class="fw-bold text-teal-dark mb-3 logo-text">Баш Вояж</h5>
+                <p class="small mb-0">Ваш надежный туроператор по Республике Башкортостан. Комфортные туры выходного дня, экспедиции и незабываемый отдых в самом сердце Урала.</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <h6 class="fw-bold text-dark mb-3">Навигация</h6>
+                <ul class="list-unstyled footer-menu d-flex flex-column gap-2 small">
+                    <li><a href="/#tours-section" class="text-decoration-none text-secondary">Маршруты туров</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#skidkiModal" class="text-decoration-none text-secondary">Скидки</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#aboutModal" class="text-decoration-none text-secondary">О нашей компании</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#personalDataModal" class="text-decoration-none text-secondary">Обработка персональных данных</a></li>
+                    <li><a href="{% url 'privacy_policy' %}" class="text-decoration-none text-secondary">Политика конфиденциальности</a></li>
+                    <li><a href="#" class="text-decoration-none text-secondary"id="cookie-settings">Настройки cookie</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <h6 class="fw-bold text-dark mb-3">Контакты</h6>
+                <ul class="list-unstyled d-flex flex-column gap-3 small">
+                    <li class="d-flex align-items-center gap-2">
+                        <i class="bi bi-telephone-fill text-teal"></i>
+                        <a href="tel:+79279330333" class="text-decoration-none text-secondary">+7 (927) 933-0-333</a>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">
+                        <i class="bi bi-envelope-fill text-teal"></i>
+                        <a href="mailto:yana.mova.99@mail.ru" class="text-decoration-none text-secondary">yana.mova.99@mail.ru</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="my-4 text-muted opacity-25">
+        <div class="text-center small opacity-75">
+            <p class="mb-0">&copy; 2026 Баш Вояж. Все права защищены. Организация туров по Башкирии.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- СЮДА ОБЯЗАТЕЛЬНО ВСТАВЬТЕ МОДАЛЬНЫЕ ОКНА ИЗ ВАШЕГО INDEX.HTML -->
+<!-- Если вы их не скопируете, кнопки "Скидки" и "О компании" в шапке и футере не будут работать -->
+<!-- Шаг 1 бронирования -->
+<div class="modal fade" id="bookingStep1Modal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- увеличена ширина -->
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold text-teal-dark">Бронирование тура</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="step1-form-wrapper">
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <!-- ЛЕВАЯ КОЛОНКА: Информация об офисе -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="fw-bold text-teal mb-3">Офис «Баш Вояж»</h6>
+                            <ul class="list-unstyled d-flex flex-column gap-3 small text-secondary">
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-telephone-fill text-teal"></i>
+                                    <a href="tel:+79279330333" class="text-decoration-none text-secondary">+7 (927) 933-0-333</a>
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-envelope-fill text-teal"></i>
+                                    <a href="mailto:yana.mova.99@mail.ru" class="text-decoration-none text-secondary">yana.mova.99@mail.ru</a>
+                                </li>
+                                <!-- при необходимости добавьте другие контакты -->
+                            </ul>
+                        </div>
+
+                        <!-- ПРАВАЯ КОЛОНКА: Форма бронирования -->
+                        <div class="col-12 col-md-8">
+                            <input type="hidden" id="step1-tour-id">
+                            <div class="mb-3">
+                                <label class="form-label small fw-medium">Выбранный маршрут</label>
+                                <select id="step1-tour-name" name="tour" class="form-select" required>
+                                    <option value="" selected disabled>Выберите маршрут</option>
+                                    {% for tour in tours %}
+                                    <option value="{{ tour.id }}"
+                                            data-price-adult="{{ tour.items.first.cost_of_adult }}"
+                                            data-price-child="{{ tour.items.first.cost_of_child }}">
+                                        {{ tour.name }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-medium">Дата выезда *</label>
+                                <input type="date" id="step1-date" name="step1_date" class="form-control form-control-sm" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-medium">Количество взрослых *</label>
+                                <input type="number" id="adults-count" name="step1_adults" class="form-control form-control-sm" min="1" value="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-medium">Количество детей *</label>
+                                <input type="number" id="children-count" name="step1_children" class="form-control form-control-sm" min="0" value="0" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="submit" class="btn btn-fill-teal w-100" id="go-to-step-2">Далее</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Шаг 2 бронирования (данные участников) -->
+<!-- Шаг 2 бронирования (данные участников) -->
+<div class="modal fade" id="bookingStep2Modal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold text-teal-dark">Данные участников</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body px-4"> <!-- Добавили отступы по бокам -->
+                <form id="booking-form" method="post" action="{% url 'booking_create' %}">
+                    {% csrf_token %}
+                    <input type="hidden" id="form-tour-id" name="tour_id">
+                    <input type="hidden" id="form-date-hidden" name="date">
+                    <input type="hidden" id="form-adults" name="adults">
+                    <input type="hidden" id="form-children" name="children">
+
+                    <h6 class="fw-bold mb-2">Данные участников</h6>
+                    <div id="participants-wrapper"></div>
+                    <hr>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="consentCheck" name="consent" required>
+                            <label class="form-check-label" for="consentCheck">
+                                Я согласен(на) на обработку персональных данных
+                            </label>
+                        </div>
+                        <small class="text-muted">
+                            <a href="{% static 'docs/Soglasie_na_obrabotku_personalnyh_dannyh.htm' %}" target="_blank" rel="noopener noreferrer">
+                                Ознакомиться с полным текстом согласия
+                            </a>
+                        </small>
+                        <br>
+                        <small class="text-muted">
+                            <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">
+                                Политика конфиденциальности
+                            </a>
+                        </small>
+                    </div>
+
+                    <!-- Капча: оставлена слева, добавлены отступы сверху/снизу -->
+                    <div class="my-4">
+                        <div id="turnstile-widget"></div>
+                    </div>
+
+                    <!-- Кнопки: добавлен отступ сверху -->
+                    <div class="d-flex gap-2 mt-3">
+                        <button type="button" class="btn btn-outline-secondary w-50" id="back-to-step-1">Назад</button>
+                        <button type="submit" class="btn btn-fill-teal w-50">Отправить заявку</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: Скидки -->
+<div class="modal fade" id="skidkiModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-teal-dark">Предоставляемые скидки туроператора «Баш Вояж»</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <p>Скоро будет описание корпоративных скидок</p>
+                <p>Скоро будет описание пенсионных и детских скидок</p>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Понятно</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: О компании -->
+<div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-teal-dark">О компании «Баш Вояж»</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Баш Вояж</strong> — это команда профессионалов, организующая туры по Башкортостану. Мы предлагаем увлекательные маршруты, комфортный транспорт и опытных гидов.</p>
+                <p>Наши преимущества:</p>
+                <ul>
+                    <li>Индивидуальный подход к каждому клиенту</li>
+                    <li>Безопасность и комфорт во время путешествий</li>
+                    <li>Уникальные маршруты по живописным местам Урала</li>
+                    <li>Доступные цены и система скидок</li>
+                </ul>
+                <p>Мы работаем для вас, чтобы каждый отдых стал незабываемым приключением!</p>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: Обработка персональных данных -->
+<div class="modal fade" id="personalDataModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-teal-dark">Обработка персональных данных</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <p>Мы собираем и обрабатываем персональные данные только с вашего согласия и в соответствии с законодательством РФ. Ваши данные используются исключительно для оформления заказов и связи с вами.</p>
+                <p>Подробнее об условиях обработки персональных данных вы можете узнать, обратившись к нашему менеджеру.</p>
+            </div>
+            <div class="modal-footer border-0">
+                <!-- Ссылка на файл согласия в футере (слева) -->
+                <a href="{% static 'docs/Soglasie_na_obrabotku_personalnyh_dannyh.htm' %}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm me-auto">
+                    📄 Ознакомиться с полным текстом согласия
+                </a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Понятно</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Модальное окно: Успешное бронирование -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+            <div class="modal-body">
+                <div class="text-success mb-3">
+                    <i class="bi bi-check-circle-fill" style="font-size: 4rem;"></i>
+                </div>
+                <h4 class="fw-bold text-teal-dark mb-3">Заявка успешно принята!</h4>
+                <div id="success-modal-content" class="text-secondary small text-start bg-light p-3 rounded mb-3"></div>
+                <p class="mb-4 small fw-medium text-teal">Менеджер «Баш Вояж» уже обрабатывает ваш заказ.</p>
+                <button type="button" class="btn btn-fill-teal w-100 py-2" data-bs-dismiss="modal">Отлично</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Скрипты -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<!-- Кнопка "Наверх" -->
+<button type="button" id="scroll-to-top-btn" class="btn btn-teal-scroll shadow position-fixed border-0 d-none" title="Наверх">
+    <i class="bi bi-arrow-up fs-4"></i>
+</button>
+
+</body>
+</html>

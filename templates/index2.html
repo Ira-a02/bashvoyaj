@@ -1,0 +1,682 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Оптимизированный Title с гео-привязкой -->
+    <title>БашВояж — Туры, сплавы и экскурсии по Башкортостану из Уфы 2026</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+
+    <!-- Обязательное описание для сниппета в поисковиках
+    <meta name="description" content="Организация туров, сплавов и экскурсий по Башкирии с выездом из Уфы. Активный отдых, туры, сплавы, экскурсии и поездки выходного дня. Удобные точки сбора, опытные гиды, цены от 1800 руб. Бронируйте свое приключение!"> -->
+    <meta name="description" content="Туры, сплавы и экскурсии по Башкирии с выездом из Уфы. Активный отдых, поездки выходного дня, опытные гиды, цены от 1800 руб. Бронируйте приключение!">
+    <meta name="keywords" content="Баш вояж, туры из уфы, экскурсии по башкирии, спалвы Уфа, сплавы башкортостан, ретриты уфа, туры выходного дня уфа, однодневные туры, куда поехать на выходные, отдых в башкирии, отдых уфа, куда поехать в отпуск, экскурсии по городам, организованные туры, поход в горы, зимний отдых, летний отдых ">
+
+    <!-- Географическая привязка для Яндекса (Локальное SEO) -->
+    <!-- Географическая привязка для Яндекса (Локальное SEO) -->
+    <meta name="geo.region" content="RU-BA"/>
+    <meta name="geo.placename" content="Уфа, Республика Башкортостан"/>
+    <meta name="geo.position" content="54.738762;55.972055"/>
+    <meta name="ICBM" content="54.738762, 55.972055"/>
+
+        <!-- Теги для соцсетей и мессенджеров (Open Graph) -->
+    <meta property="og:title" content="Баш Вояж — Туры по Башкортостану из Уфы">
+    <meta property="og:description" content="Сплавы, горы, ретриты. Выезды из Уфы с удобных точек сбора.">
+    <meta property="og:image" content="{% static 'img/BashVoyajLogo.webp' %}">
+    <meta property="og:type" content="website">
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script> window.CF_TURNSTILE_SITE_KEY = "{{ CF_TURNSTILE_SITE_KEY }}";</script>
+    <script> window.PRIVACY_POLICY_URL = "{% url 'privacy_policy' %}";</script>
+</head>
+<body>
+
+<!-- Блок логотипа -->
+<div id="BashVoyajLogo" class="top-bar p-0">
+    <div class="container-fluid p-0">
+        <img src="{% static 'img/BashVoyajLogo.webp' %}" alt="Баш Вояж — туры по Башкортостану" class="img-fluid w-100">
+    </div>
+</div>
+
+<!-- Шапка -->
+<header class="sticky-top shadow-sm position-relative">
+    <!-- Круглый логотип -->
+    <div class="header-center-avatar position-absolute top-0 start-50 translate-middle-x"
+         style="z-index: 9999; pointer-events: auto;">
+        <a href="#tours-section" class="d-inline-block" style="pointer-events: auto;">
+            <img src="{% static 'img/Logo1.webp' %}" alt="Баш вояж - логотип компании"
+                 class="rounded-circle"
+                 style="width: 80px; height: 80px; pointer-events: auto;">
+        </a>
+    </div>
+
+    <!-- Верхняя информационная панель -->
+    <div class="top-bar py-2 bg-light border-bottom text-secondary small">
+        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="tel:+79279330333" class="text-decoration-none text-secondary d-flex align-items-center gap-1">
+                    <i class="bi bi-telephone-fill text-teal"></i> +7 (927) 933‑0‑333
+                </a>
+                <a href="mailto:yana.mova.99@mail.ru"
+                   class="text-decoration-none text-secondary d-flex align-items-center gap-1">
+                    <i class="bi bi-envelope-fill text-teal"></i> yana.mova.99@mail.ru
+                </a>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <!-- VK -->
+                <a href="https://vk.com/bashvoyaj" target="_blank" rel="noopener noreferrer"
+                   class="text-secondary d-flex align-items-center justify-content-center"
+                   title="ВКонтакте" aria-label="Наша страница ВКонтакте " style="width: 24px; height: 24px;">
+                    <span style="color: #0077FF; width: 100%; height: 100%; display: flex;">
+                        <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+                            <path d="M15.025 21.05c-6.84 0-10.745-4.685-10.91-12.49h3.405c.11 5.735 2.63 8.165 4.635 8.665V8.56H15.3v4.935c1.925-.21 4.025-2.47 4.71-4.935h3.4a8.91 8.91 0 0 1-4.32 6.305c1.785.835 4.08 2.84 4.61 6.185h-3.565c-.415-2.615-2.515-4.645-4.965-4.89v4.89h-.65Z"/>
+                        </svg>
+                    </span>
+                </a>
+                <!-- Max -->
+                <a href="https://max.ru/join/a2oHwxTdg9oA2yVyeD7qmpSay2FMBOTRMJppfPbLiH8" target="_blank" rel="noopener noreferrer"
+                   class="text-secondary d-flex align-items-center justify-content-center"
+                   title="Max" aria-label="Наш канал в Макс" style="width: 24px; height: 24px;">
+                    <img src="{% static 'img/MAX.svg' %}" alt="MAX" style="width: 95%; height: 95%; object-fit: contain;">
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/bashvoyaj" target="_blank" rel="noopener noreferrer"
+                   class="text-secondary d-flex align-items-center justify-content-center"
+                   title="Instagram" aria-label="Наша страница в Инстаграм"style="width: 24px; height: 24px;">
+                    <i class="bi bi-instagram" style="color: #E4405F; font-size: 24px;"></i>
+                </a>
+                <!-- Telegram -->
+                <a href="https://web.telegram.org/k/#@BashVoyaj" target="_blank" rel="noopener noreferrer"
+                   class="text-secondary d-flex align-items-center justify-content-center"
+                   title="Telegram" aria-label="Наш канал в Телеграм" style="width: 24px; height: 24px;">
+                    <i class="bi bi-telegram" style="color: #0088CC; font-size: 24px;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-md navbar-light style-navbar-custom">
+        <div class="container">
+            <a class="navbar-brand logo-text fw-bold" href="#"><i>БашВояж</i></a>
+            <button class="navbar-toggler border-0" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav menu-list gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" href="#tours-section">Маршруты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#" id="open-booking-step1">
+                            Контакты и бронирование
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#" data-bs-toggle="modal"
+                           data-bs-target="#skidkiModal">Скидки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#" data-bs-toggle="modal"
+                           data-bs-target="#aboutModal">О компании</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Разделитель флага -->
+<div class="bashkortostan-flag-divider">
+    <hr class="flag-line-blue">
+    <hr class="flag-line-white">
+    <hr class="flag-line-green">
+</div>
+<h1 class="visually-hidden">Баш Вояж: Туры, сплавы и экскурсии из Уфы по Башкирии</h1>
+
+<!-- Основной контент -->
+<main class="container my-5">
+    <section id="tours-section">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
+            <h2 class="section-title mb-0">Доступные приключения</h2>
+            <div class="btn-group filter-group-box shadow-sm" role="group">
+                <button type="button" class="btn btn-teal active filter-btn" data-category="all">Все</button>
+                <button type="button" class="btn btn-teal filter-btn" data-category="горы">Горы</button>
+                <button type="button" class="btn btn-teal filter-btn" data-category="на воде">На воде</button>
+                <button type="button" class="btn btn-teal filter-btn" data-category="города">Города</button>
+                <button type="button" class="btn btn-teal filter-btn" data-category="школьные туры">Школьные туры</button>
+                <button type="button" class="btn btn-teal filter-btn" data-category="корпоративы">Корпоративы</button>
+
+            </div>
+        </div>
+
+        <div id="tours-container" class="row g-4 mt-1">
+            {% for item in tours %}
+            <div class="col-12 col-md-6 col-lg-4 tour-card-item"
+                 data-type="{{ item.type_of_tour.name|lower }}">
+                <div class="card h-100 shadow-sm tour-card">
+                    <div class="card-img-wrapper"
+                         style="background-image:url('{% if item.photo|slice:":4" == "http" %}{{ item.photo }}{% else %}{% static item.photo %}{% endif %}');">
+                    <!-- <span class="badge position-absolute top-0 start-0 m-3 shadow
+                        {% if item.type_of_tour.name|lower == 'горы' %}bg-teal
+                        {% elif item.type_of_tour.name|lower == 'города' %}bg-red
+                        {% else %}bg-orange{% endif %}">
+                        {{ item.type_of_tour.name }}
+                    </span> -->
+                    <span class="badge position-absolute top-0 start-0 m-3 shadow
+                        {% if item.type_of_tour.name|lower == 'горы' %}bg-teal
+                        {% elif item.type_of_tour.name|lower == 'города' %}bg-yellow
+                        {% elif item.type_of_tour.name|lower == 'на воде' %}bg-orange
+                        {% elif item.type_of_tour.name|lower == 'школьные туры' %}bg-purple
+                        {% elif item.type_of_tour.name|lower == 'корпоративы' %}bg-blue
+                        {% else %}bg-secondary{% endif %}">
+                        {{ item.type_of_tour.name }}
+                    </span>
+
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold text-teal-dark">{{ item.name }}</h5>
+                        <p class="card-subtitle text-muted mb-2 small">
+                            <i class="bi bi-clock"></i>
+                            {{ item.time_of_tour }}
+                            {% if item.time_of_tour|add:"0" == 1 %}
+                            день
+                            {% elif item.time_of_tour|add:"0" >= 2 and item.time_of_tour|add:"0" <= 4 %}
+                            дня
+                            {% else %}
+                            дней
+                            {% endif %}
+                        </p>
+                        <p class="card-text text-secondary flex-grow-1">
+                            {{ item.description_short }}
+                        </p>
+                        <div class="d-flex gap-2 mt-3">
+                            <button class="btn btn-outline-teal w-50"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#tourModal{{ item.id }}">
+                                Подробнее
+                            </button>
+                            <button class="btn btn-fill-teal w-50 order-btn"
+                                    data-tour-id="{{ item.id }}"
+                                    data-tour-name="{{ item.name }}">
+                                Забронировать
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Модальное окно "Подробнее" для каждого тура -->
+            {% with details=item.items.first %}
+            <div class="modal fade" id="tourModal{{ item.id }}" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <h4 class="modal-title fw-bold text-teal-dark">{{ item.name }}</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <script type="application/ld+json">
+                                {
+                                    "@context": "https://schema.org",
+                                    "@type": "Product",
+                                    "name": "{{ item.name }}",
+                                    "description": "{% if details and details.description %}{{ details.description|escapejs }}{% else %}{{ item.description_short|escapejs }}{% endif %}",
+                                    "image": "{% if details and details.photo1 %}{% static details.photo1 %}{% endif %}",
+                                    "offers": {
+                                        "@type": "Offer",
+                                        "price": "{{ details.cost_of_adult }}",
+                                        "priceCurrency": "RUB",
+                                        "availability": "https://schema.org/InStock"
+                                    }
+                                }
+                            </script>
+                            {% if details %}
+                            <!-- Карусель -->
+                            <div id="carousel{{ item.id }}" class="carousel slide mb-3" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    {% if details.photo1 %}
+                                    <button type="button" data-bs-target="#carousel{{ item.id }}" data-bs-slide-to="0" class="active"></button>
+                                    {% endif %}
+                                    {% if details.photo2 %}
+                                    <button type="button" data-bs-target="#carousel{{ item.id }}" data-bs-slide-to="1"></button>
+                                    {% endif %}
+                                    {% if details.photo3 %}
+                                    <button type="button" data-bs-target="#carousel{{ item.id }}" data-bs-slide-to="2"></button>
+                                    {% endif %}
+                                </div>
+<!--                                <div class="carousel-inner">-->
+<!--                                    {% if details.photo1 %}-->
+<!--                                    <div class="carousel-item active">-->
+<!--                                        <img src="{% static details.photo1 %}" class="carousel-img" alt="">-->
+<!--                                    </div>-->
+<!--                                    {% endif %}-->
+<!--                                    {% if details.photo2 %}-->
+<!--                                    <div class="carousel-item">-->
+<!--                                        <img src="{% static details.photo2 %}" class="carousel-img" alt="">-->
+<!--                                    </div>-->
+<!--                                    {% endif %}-->
+<!--                                    {% if details.photo3 %}-->
+<!--                                    <div class="carousel-item">-->
+<!--                                        <img src="{% static details.photo3 %}" class="carousel-img" alt="">-->
+<!--                                    </div>-->
+<!--                                    {% endif %}-->
+<!--                                </div>-->
+
+
+
+
+
+<!--                                -->
+<!--                                <div class="carousel-inner">-->
+<!--                                    {% if details.photo1 %}-->
+<!--                                    <div class="carousel-item active">-->
+<!--                                        <img src="{% static details.photo1 %}" class="carousel-img"-->
+<!--                                             alt="{{ item.name }} — главное фото" loading="lazy">-->
+<!--                                    </div>-->
+<!--                                    {% endif %}-->
+<!--                                    {% if details.photo2 %}-->
+<!--                                    <div class="carousel-item">-->
+<!--                                        <img src="{% static details.photo2 %}" class="carousel-img"-->
+<!--                                             alt="{{ item.name }} — фото 2" loading="lazy">-->
+<!--                                    </div>-->
+<!--                                    {% endif %}-->
+<!--                                    {% if details.photo3 %}-->
+<!--                                    <div class="carousel-item">-->
+<!--                                        <img src="{% static details.photo3 %}" class="carousel-img"-->
+<!--                                             alt="{{ item.name }} — фото 3" loading="lazy">-->
+<!--                                    </div>-->
+<!--                                    {% endif %}-->
+<!--                                </div>-->
+                                <div class="carousel-inner">
+                                    {% if details.photo1 %}
+                                    <div class="carousel-item active">
+                                        <img src="{% static details.photo1 %}" class="carousel-img"
+                                             alt="{% if details.alt_photo1 %}{{ details.alt_photo1 }}{% else %}{{ item.name }} — главное фото{% endif %}"
+                                             loading="lazy">
+                                    </div>
+                                    {% endif %}
+                                    {% if details.photo2 %}
+                                    <div class="carousel-item">
+                                        <img src="{% static details.photo2 %}" class="carousel-img"
+                                             alt="{% if details.alt_photo2 %}{{ details.alt_photo2 }}{% else %}{{ item.name }} — фото 2{% endif %}"
+                                             loading="lazy">
+                                    </div>
+                                    {% endif %}
+                                    {% if details.photo3 %}
+                                    <div class="carousel-item">
+                                        <img src="{% static details.photo3 %}" class="carousel-img"
+                                             alt="{% if details.alt_photo3 %}{{ details.alt_photo3 }}{% else %}{{ item.name }} — фото 3{% endif %}"
+                                             loading="lazy">
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <button class="carousel-arrow prev" data-bs-target="#carousel{{ item.id }}" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-arrow next" data-bs-target="#carousel{{ item.id }}" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+
+                            <p class="fw-semibold text-orange mb-2">
+                                {{ item.type_of_tour.name }} • {{ item.time_of_tour }}
+                                {% if item.time_of_tour == 1 %} день
+                                {% elif item.time_of_tour >= 2 and item.time_of_tour <= 4 %} дня
+                                {% else %} дней
+                                {% endif %}
+                            </p>
+                            <p>{{ details.description|linebreaks }}</p>
+
+                            <div class="tour-program mt-4">
+                                <h5 class="fw-bold mb-3">Программа тура</h5>
+                                {{ details.program_text|safe }}
+                                <p class="small text-muted mb-4">
+                                    Время и маршрут могут меняться в зависимости от погодных условий.
+                                </p>
+                                <div class="p-3 bg-light border rounded">
+                                    <h6 class="fw-bold mb-2">Стоимость тура:</h6>
+                                    <p class="mb-1">Взрослый: {{ details.cost_of_adult }} ₽</p>
+                                    <p class="mb-0">Ребёнок: {{ details.cost_of_child }} ₽</p>
+                                </div>
+                            </div>
+                            {% else %}
+                            <p class="text-muted">Информация о туре пока не добавлена.</p>
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer border-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="button"
+                                    class="btn btn-fill-teal order-btn"
+                                    data-bs-dismiss="modal"
+                                    data-tour-id="{{ item.id }}"
+                                    data-tour-name="{{ item.name }}">
+                                Забронировать место
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endwith %}
+            {% empty %}
+            <div class="col-12">
+                <p class="text-muted">Туров пока нет.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+
+<!-- Подвал -->
+<footer id="footer-section" class="bg-light border-top py-5 mt-5 text-secondary">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-12 col-md-4">
+                <h5 class="fw-bold text-teal-dark mb-3 logo-text">Баш Вояж</h5>
+                <p class="small mb-0">Ваш надежный туроператор по Республике Башкортостан. Комфортные туры выходного дня, экспедиции и незабываемый отдых в самом сердце Урала.</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <h6 class="fw-bold text-dark mb-3">Навигация</h6>
+                <ul class="list-unstyled footer-menu d-flex flex-column gap-2 small">
+                    <li><a href="#tours-section" class="text-decoration-none text-secondary">Маршруты туров</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#skidkiModal" class="text-decoration-none text-secondary">Скидки</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#aboutModal" class="text-decoration-none text-secondary">О нашей компании</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#personalDataModal" class="text-decoration-none text-secondary">Обработка персональных данных</a></li>
+<!--                    <li><a href="{% url 'privacy_policy' %}">Политика конфиденциальности</a></li>-->
+                    <li><a href="{% url 'privacy_policy' %}" class="text-decoration-none text-secondary">Политика конфиденциальности</a></li>
+                    <li><a href="#" class="text-decoration-none text-secondary"id="cookie-settings">Настройки cookie</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <h6 class="fw-bold text-dark mb-3">Контакты</h6>
+                <ul class="list-unstyled d-flex flex-column gap-3 small">
+                    <li class="d-flex align-items-center gap-2">
+                        <i class="bi bi-telephone-fill text-teal"></i>
+                        <a href="tel:+79279330333" class="text-decoration-none text-secondary">+7 (927) 933-0-333</a>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">
+                        <i class="bi bi-envelope-fill text-teal"></i>
+                        <a href="mailto:yana.mova.99@mail.ru" class="text-decoration-none text-secondary">yana.mova.99@mail.ru</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="my-4 text-muted opacity-25">
+        <div class="text-center small opacity-75">
+            <p class="mb-0">&copy; 2026 Баш Вояж. Все права защищены. Организация туров по Башкирии.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== МОДАЛЬНЫЕ ОКНА ===== -->
+
+<!--&lt;!&ndash; Шаг 1 бронирования &ndash;&gt;-->
+<!--<div class="modal fade" id="bookingStep1Modal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered modal-md">-->
+<!--        <div class="modal-content border-0 shadow-lg">-->
+<!--            <div class="modal-header border-0 pb-0">-->
+<!--                <h5 class="modal-title fw-bold text-teal-dark">Бронирование тура</h5>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>-->
+<!--            </div>-->
+<!--            <form id="step1-form-wrapper">-->
+<!--                <div class="modal-body">-->
+<!--                    <input type="hidden" id="step1-tour-id">-->
+<!--                    <div class="mb-3">-->
+<!--                        <label class="form-label small fw-medium">Выбранный маршрут</label>-->
+<!--                        <select id="step1-tour-name" name="tour" class="form-select" required>-->
+<!--                            <option value="" selected disabled>Выберите маршрут</option>-->
+<!--                            {% for tour in tours %}-->
+<!--                            <option value="{{ tour.id }}"-->
+<!--                                    data-price-adult="{{ tour.items.first.cost_of_adult }}"-->
+<!--                                    data-price-child="{{ tour.items.first.cost_of_child }}">-->
+<!--                                {{ tour.name }}-->
+<!--                            </option>-->
+<!--                            {% endfor %}-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                        <label class="form-label small fw-medium">Дата выезда *</label>-->
+<!--                        <input type="date" id="step1-date" name="step1_date" class="form-control form-control-sm" required>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                        <label class="form-label small fw-medium">Количество взрослых *</label>-->
+<!--                        <input type="number" id="adults-count" name="step1_adults" class="form-control form-control-sm" min="1" value="1" required>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                        <label class="form-label small fw-medium">Количество детей *</label>-->
+<!--                        <input type="number" id="children-count" name="step1_children" class="form-control form-control-sm" min="0" value="0" required>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="modal-footer border-0 pt-0">-->
+<!--                    <button type="submit" class="btn btn-fill-teal w-100" id="go-to-step-2">Далее</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!-- Шаг 1 бронирования -->
+<div class="modal fade" id="bookingStep1Modal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- увеличена ширина -->
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold text-teal-dark">Бронирование тура</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="step1-form-wrapper">
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <!-- ЛЕВАЯ КОЛОНКА: Информация об офисе -->
+                        <div class="col-12 col-md-4">
+                            <h6 class="fw-bold text-teal mb-3">Офис «Баш Вояж»</h6>
+                            <ul class="list-unstyled d-flex flex-column gap-3 small text-secondary">
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-telephone-fill text-teal"></i>
+                                    <a href="tel:+79279330333" class="text-decoration-none text-secondary">+7 (927) 933-0-333</a>
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-envelope-fill text-teal"></i>
+                                    <a href="mailto:yana.mova.99@mail.ru" class="text-decoration-none text-secondary">yana.mova.99@mail.ru</a>
+                                </li>
+                                <!-- при необходимости добавьте другие контакты -->
+                            </ul>
+                        </div>
+
+                        <!-- ПРАВАЯ КОЛОНКА: Форма бронирования -->
+                        <div class="col-12 col-md-8">
+                            <input type="hidden" id="step1-tour-id">
+                            <div class="mb-3">
+                                <label class="form-label small fw-medium">Выбранный маршрут</label>
+                                <select id="step1-tour-name" name="tour" class="form-select" required>
+                                    <option value="" selected disabled>Выберите маршрут</option>
+                                    {% for tour in tours %}
+                                    <option value="{{ tour.id }}"
+                                            data-price-adult="{{ tour.items.first.cost_of_adult }}"
+                                            data-price-child="{{ tour.items.first.cost_of_child }}">
+                                        {{ tour.name }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-medium">Дата выезда *</label>
+                                <input type="date" id="step1-date" name="step1_date" class="form-control form-control-sm" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-medium">Количество взрослых *</label>
+                                <input type="number" id="adults-count" name="step1_adults" class="form-control form-control-sm" min="1" value="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-medium">Количество детей *</label>
+                                <input type="number" id="children-count" name="step1_children" class="form-control form-control-sm" min="0" value="0" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="submit" class="btn btn-fill-teal w-100" id="go-to-step-2">Далее</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Шаг 2 бронирования (данные участников) -->
+<div class="modal fade" id="bookingStep2Modal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold text-teal-dark">Данные участников</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body px-4"> <!-- Добавили отступы по бокам -->
+                <form id="booking-form" method="post" action="{% url 'booking_create' %}">
+                    {% csrf_token %}
+                    <input type="hidden" id="form-tour-id" name="tour_id">
+                    <input type="hidden" id="form-date-hidden" name="date">
+                    <input type="hidden" id="form-adults" name="adults">
+                    <input type="hidden" id="form-children" name="children">
+
+                    <h6 class="fw-bold mb-2">Данные участников</h6>
+                    <div id="participants-wrapper"></div>
+                    <hr>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="consentCheck" name="consent" required>
+                            <label class="form-check-label" for="consentCheck">
+                                Я согласен(на) на обработку персональных данных
+                            </label>
+                        </div>
+                        <small class="text-muted">
+                            <a href="{% static 'docs/Soglasie_na_obrabotku_personalnyh_dannyh.htm' %}" target="_blank" rel="noopener noreferrer">
+                                Ознакомиться с полным текстом согласия
+                            </a>
+                        </small>
+                        <br>
+                        <small class="text-muted">
+                            <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">
+                                Политика конфиденциальности
+                            </a>
+                        </small>
+                    </div>
+
+                    <!-- Капча: оставлена слева, добавлены отступы сверху/снизу -->
+                    <div class="my-4">
+                        <div id="turnstile-widget"></div>
+                    </div>
+
+                    <!-- Кнопки: добавлен отступ сверху -->
+                    <div class="d-flex gap-2 mt-3">
+                        <button type="button" class="btn btn-outline-secondary w-50" id="back-to-step-1">Назад</button>
+                        <button type="submit" class="btn btn-fill-teal w-50">Отправить заявку</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: Скидки -->
+<div class="modal fade" id="skidkiModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-teal-dark">Предоставляемые скидки туроператора «Баш Вояж»</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <p>Скоро будет описание корпоративных скидок</p>
+                <p>Скоро будет описание пенсионных и детских скидок</p>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Понятно</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: О компании -->
+<div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-teal-dark">О компании «Баш Вояж»</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Баш Вояж</strong> — это команда профессионалов, организующая туры по Башкортостану. Мы предлагаем увлекательные маршруты, комфортный транспорт и опытных гидов.</p>
+                <p>Наши преимущества:</p>
+                <ul>
+                    <li>Индивидуальный подход к каждому клиенту</li>
+                    <li>Безопасность и комфорт во время путешествий</li>
+                    <li>Уникальные маршруты по живописным местам Урала</li>
+                    <li>Доступные цены и система скидок</li>
+                </ul>
+                <p>Мы работаем для вас, чтобы каждый отдых стал незабываемым приключением!</p>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно: Обработка персональных данных -->
+<div class="modal fade" id="personalDataModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-teal-dark">Обработка персональных данных</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <p>Мы собираем и обрабатываем персональные данные только с вашего согласия и в соответствии с законодательством РФ. Ваши данные используются исключительно для оформления заказов и связи с вами.</p>
+                <p>Подробнее об условиях обработки персональных данных вы можете узнать, обратившись к нашему менеджеру.</p>
+            </div>
+            <div class="modal-footer border-0">
+                <!-- Ссылка на файл согласия в футере (слева) -->
+                <a href="{% static 'docs/Soglasie_na_obrabotku_personalnyh_dannyh.htm' %}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm me-auto">
+                    📄 Ознакомиться с полным текстом согласия
+                </a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Понятно</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Модальное окно: Успешное бронирование -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+            <div class="modal-body">
+                <div class="text-success mb-3">
+                    <i class="bi bi-check-circle-fill" style="font-size: 4rem;"></i>
+                </div>
+                <h4 class="fw-bold text-teal-dark mb-3">Заявка успешно принята!</h4>
+                <div id="success-modal-content" class="text-secondary small text-start bg-light p-3 rounded mb-3"></div>
+                <p class="mb-4 small fw-medium text-teal">Менеджер «Баш Вояж» уже обрабатывает ваш заказ.</p>
+                <button type="button" class="btn btn-fill-teal w-100 py-2" data-bs-dismiss="modal">Отлично</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="cookie-banner-container"></div>
+
+<!-- Скрипты -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+
+<!-- Кнопка "Наверх" -->
+<button type="button" id="scroll-to-top-btn" class="btn btn-teal-scroll shadow position-fixed border-0 d-none" title="Наверх">
+    <i class="bi bi-arrow-up fs-4"></i>
+</button>
+
+</body>
+</html>
