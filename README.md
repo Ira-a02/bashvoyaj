@@ -30,7 +30,7 @@ Django-проект для туристической фирмы: каталог
 ## 📦 Установка
 
 ```bash
-git clone https://github.com/username/bashvoyaj.git
+git clone https://github.com/Ira-a02/bashvoyaj.git
 cd bashvoyaj
 
 python -m venv venv
