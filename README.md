@@ -102,6 +102,7 @@ bashvoyaj-portfolio/
 ├── .env.example
 ├── .gitignore
 ├── manage.py
+├── queries.sql
 ├── README.md
 └── requirements.txt
 ```
